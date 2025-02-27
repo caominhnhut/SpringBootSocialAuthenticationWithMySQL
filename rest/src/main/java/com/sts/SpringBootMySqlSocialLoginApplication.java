@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class SpringBootMySqlApplication {
+public class SpringBootMySqlSocialLoginApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootMySqlApplication.class, args);
+        SpringApplication.run(SpringBootMySqlSocialLoginApplication.class, args);
     }
 
 }

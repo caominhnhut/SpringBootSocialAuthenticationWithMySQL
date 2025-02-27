@@ -19,6 +19,11 @@ spring:
         jdbc:
           time_zone: UTC
 
+google:
+  client:
+    id: ${GOOGLE_CLIENT_ID}
+    secret: ${GOOGLE_CLIENT_SECRET}
+
 logging:
   level:
     root: info

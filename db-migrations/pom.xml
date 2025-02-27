@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.sts</groupId>
-        <artifactId>spring-boot-my-sql</artifactId>
+        <artifactId>spring-boot-my-sql-social-login</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-boot-my-sql-db-migrations</artifactId>
+    <artifactId>spring-boot-my-sql-social-login-db-migrations</artifactId>
 
     <properties>
         <maven.compiler.source>${java.version}</maven.compiler.source>

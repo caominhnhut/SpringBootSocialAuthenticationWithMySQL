@@ -1,6 +1,6 @@
 # Spring Boot MySQL Example
 
-A simple Spring Boot application demonstrating integration with MySQL database.
+A simple Spring Boot application demonstrating integration with MySQL database and Google OAuth2 login.
 
 ## Prerequisites
 
@@ -27,6 +27,29 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 
 ## Configuration
 
+### Google OAuth2 Setup
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing one
+3. Navigate to APIs & Services > Credentials
+4. Click "Create Credentials" > "OAuth client ID"
+5. Choose "Web application"
+6. Add authorized redirect URI: `http://localhost:8080/grantcode`
+7. Note down your Client ID and Client Secret
+
+Update these credentials in `src/main/resources/application-dev.yaml`:
+
+```yaml
+google:
+  client:
+    id: YOUR_CLIENT_ID
+    secret: YOUR_CLIENT_SECRET
+```
+
+Also update `loginpage/index.html` with your client ID in the OAuth URL.
+
+### Database Configuration
+
 The application uses Spring profiles for different environments:
 - `dev` - Development environment
 - `prod` - Production environment
@@ -49,11 +72,6 @@ spring.datasource.password=your_password
 
 ## API Endpoints
 
-### Authentication Endpoints
-- POST `/api/auth/login` - Authenticate user
-- POST `/api/auth/signup` - Register new user
-- POST `/api/auth/signout` - Logout user
-
 ### User Endpoints
 - GET `/api/users` - Get all users
 - GET `/api/users/{id}` - Get user by ID
@@ -62,7 +80,7 @@ spring.datasource.password=your_password
 - DELETE `/api/users/{id}` - Delete user
 
 ### Role Endpoints
-- GET `/api/roles` - Get all roles (requires ADMIN or MODERATOR role)
+- GET `/api/roles` - Get all roles
 - GET `/api/roles/{id}` - Get role by ID
 - POST `/api/roles` - Create new role
 - PUT `/api/roles/{id}` - Update role
@@ -75,6 +93,19 @@ spring.datasource.password=your_password
 - PUT `/api/user-roles/{id}` - Update user role
 - DELETE `/api/user-roles/{id}` - Delete user role
 
+## Demo OAuth2 Login
+
+1. Simply open the file in your browser:
+```bash
+cd loginpage
+# Double click index.html or open it directly in your browser
+```
+
+2. Click "Sign in with Google" button
+   - This will redirect to Google's login page
+   - After authentication, Google will redirect back with the user info
+   - You will be redirected to a success page
+
 ## Technologies
 
 - Spring Boot
@@ -85,3 +116,5 @@ spring.datasource.password=your_password
 - Flyway (Database Migration)
 - Maven
 - Lombok
+- OAuth2 Client
+- Google Sign-In

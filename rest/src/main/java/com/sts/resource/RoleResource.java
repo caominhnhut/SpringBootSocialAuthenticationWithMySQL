@@ -8,7 +8,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,12 +22,6 @@ public class RoleResource {
     private final RoleService roleService;
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
-    /*
-     * When you use hasRole('ADMIN'), Spring Security automatically adds the ROLE_ prefix,
-     * so it checks for ROLE_ADMIN behind the scenes. If you want to use a custom prefix or no prefix at all,
-     * you can use hasAuthority('ADMIN') instead.
-     * */
     public ResponseEntity<List<RoleDto>> getAllRoles() {
         List<RoleDto> roles = roleService.getAllRoles();
         return ResponseEntity.ok(roles);

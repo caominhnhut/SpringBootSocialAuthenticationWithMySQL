@@ -9,11 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sts</groupId>
-    <artifactId>spring-boot-my-sql</artifactId>
+    <artifactId>spring-boot-my-sql-social-login</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>spring-boot-my-sql</name>
-    <description>Spring Boot My SQL</description>
+    <name>spring-boot-my-sql-social-login</name>
+    <description>Spring Boot My SQL social login</description>
     <url/>
     <licenses>
         <license/>
